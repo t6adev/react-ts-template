@@ -4,6 +4,10 @@ When you build an app by react with typescript, it's needed to use bundler for c
 But if your app is assumed to run on modern browsers, You can write javascript code as esmodule type.
 This shows the proof how you can set up an environment by [Snowpack](https://github.com/pikapkg/snowpack) and Babel.
 
+## Stack Patterns
+- Compiled code are bundled by webpack([master repo](https://github.com/tell-y/react-ts-template/tree/master)). 
+- Compiled code are referred as esmodule([snowpack repo](https://github.com/tell-y/react-ts-template/tree/snowpack))
+
 ## How to Start
 After run `$ npm run start`, you can access provided url to see results.
 
