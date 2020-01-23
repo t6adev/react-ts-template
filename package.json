@@ -4,21 +4,44 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm run build && serve dist",
-    "build": "webpack"
+    "prepare": "snowpack --dest dist/web_modules/",
+    "build": "babel --extensions \".ts,.tsx\" src/ -d dist && cp public/* dist"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "npm:@reactesm/react@^0.1.0",
+    "react-dom": "npm:@reactesm/react-dom@^0.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.18",
     "@types/react-dom": "^16.9.5",
     "html-webpack-plugin": "^3.2.0",
     "serve": "^11.3.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "snowpack": "^1.1.0",
+    "typescript": "^3.7.5"
+  },
+  "snowpack": {
+    "webDependencies": [
+      "react",
+      "react-dom"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/typescript"
+    ],
+    "plugins": [
+      [
+        "snowpack/assets/babel-plugin.js",
+        {
+          "optionalExtensions": true
+        }
+      ]
+    ]
   },
   "license": "MIT"
 }
